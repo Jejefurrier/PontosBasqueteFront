@@ -14,10 +14,15 @@ export class LancarPontosComponent implements OnInit {
   @ViewChild('Pontos') Pontos: ElementRef;
   
   sendPontos(){
-      let part: Partida;
+      let part: Partida = new Partida();
+      part.ID = 0;
       part.Dia = this.Data.nativeElement.value;
       part.Pontos = this.Pontos.nativeElement.value;
-      this.req.SetPartida(part);
+      try {
+          this.req.SetPartida(part);
+      } catch (error) {
+          console.log("DEU RUIM: " + error);
+      }
   }
 
   ngOnInit(): void {

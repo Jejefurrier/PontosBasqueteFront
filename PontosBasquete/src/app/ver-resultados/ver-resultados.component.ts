@@ -25,10 +25,9 @@ export class VerResultadosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.PreencherDados(this.req.GetPartidas());
-      //this.Partidas = this.req.GetPartidas(); 
-      
+      var teste = this.req.GetPartidas().subscribe(result => { this.PreencherDados(result); })
   }
+
   PreencherDados(partidas:Partida[]) {
       this.menorDia = this.proc.GetMenorDia(partidas);
       this.maiorDia = this.proc.GetMaiorDia(partidas);
@@ -38,6 +37,7 @@ export class VerResultadosComponent implements OnInit {
       this.maiorPontuacao = this.proc.GetMaiorPontuacao(partidas);
       this.menorPontuacao = this.proc.GetMenorPontuacao(partidas);
       this.qtdeBateuRecorde = this.proc.GetQtdBateuRecorde(partidas);
+      console.log(this.Partidas)
   }
     
 }
