@@ -1,6 +1,9 @@
-<h1>Lançar pontos</h1>
-<p>Data do jogo</p>
-<input #Data id="date" type="date">
-<p>Quantos pontos você fez?</p>
-<input #Pontos type="number" > <br>
-<button (click)="sendPontos()" class="btn btn-success" >Enviar</button>
+<div id="lancar" class="rounded border border-secondary">
+  <h1>Lançar pontos</h1>
+  <hr>
+  <p>Data do jogo</p>
+  <input #Data id="date" type="date" class="form-control">
+  <p>Quantos pontos você fez?</p>
+  <input #Pontos type="number" class="form-control" > <br>
+  <button (click)="sendPontos()" class="btn btn-success" >Enviar</button>
+</div>

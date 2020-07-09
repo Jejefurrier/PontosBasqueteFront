@@ -1,0 +1,10 @@
+#lancar{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+#lancar button{
+  margin-top: 10px;
+  min-width: 100%;
+}
