@@ -9,27 +9,33 @@ export class ProcessarInfoService {
 
     constructor() { }
 
-    public GetMenorDia(partidas : Partida[]): string{
+    public GetMenorDia(partidas: Partida[]): string{
         try{
-            let menor = this.dataAtualFormatada(partidas[0].dia);
+            //testes
+            var a = this.dataAtualFormatada(new Date(partidas[0].dia)).getTime();
+            var b = this.dataAtualFormatada(new Date('2020-07-23')).getTime();
+            //endtestes
+            let menor = this.dataAtualFormatada(new Date(partidas[0].dia));
             partidas.forEach(element => {
-                if(menor.getTime() > this.dataAtualFormatada(element.dia).getTime())
-                menor = this.dataAtualFormatada(element.dia);
+                if (menor.getTime() > this.dataAtualFormatada(new Date(element.dia)).getTime()) {
+                    menor = this.dataAtualFormatada(new Date(element.dia));
+                }
             });
-            return menor.toLocaleDateString("pt-BR");
-        }catch(erro){
-            alert(erro)
+            return menor.toLocaleDateString('pt-BR');
+        }catch (erro){
+            alert(erro);
         }
     }
 
-    public GetMaiorDia(partidas : Partida[]): string{
+    public GetMaiorDia(partidas: Partida[]): string{
         try{
-            let maior = this.dataAtualFormatada(partidas[0].dia)
+            let maior = this.dataAtualFormatada(new Date(partidas[0].dia));
             partidas.forEach(element => {
-                if(maior.getTime() < this.dataAtualFormatada(element.dia).getTime())
-                maior = this.dataAtualFormatada(element.dia);
+                if (maior.getTime() < this.dataAtualFormatada(new Date(element.dia)).getTime()) {
+                    maior = this.dataAtualFormatada(new Date(element.dia));
+                }
             });
-            return maior.toLocaleDateString("pt-BR");
+            return maior.toLocaleDateString('pt-BR');
         }catch(erro){
             alert(erro)
         }
