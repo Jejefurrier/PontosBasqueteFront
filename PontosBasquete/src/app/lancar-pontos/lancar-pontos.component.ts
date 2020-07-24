@@ -12,12 +12,12 @@ export class LancarPontosComponent implements OnInit {
 
   @ViewChild('Data') Data: ElementRef;
   @ViewChild('Pontos') Pontos: ElementRef;
-  
+
   sendPontos(){
       let part: Partida = new Partida();
-      part.ID = 0;
-      part.Dia = this.Data.nativeElement.value;
-      part.Pontos = this.Pontos.nativeElement.value;
+      part.id = 0;
+      part.dia = this.Data.nativeElement.value;
+      part.pontos = this.Pontos.nativeElement.value;
       try {
           this.req.SetPartida(part);
       } catch (error) {
@@ -26,9 +26,9 @@ export class LancarPontosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      
+
   }
 
-  
+
 
 }

@@ -11,10 +11,10 @@ export class ProcessarInfoService {
 
     public GetMenorDia(partidas : Partida[]): string{
         try{
-            let menor = this.dataAtualFormatada(partidas[0].Dia)
+            let menor = this.dataAtualFormatada(partidas[0].dia);
             partidas.forEach(element => {
-                if(menor.getTime() > this.dataAtualFormatada(element.Dia).getTime())
-                menor = this.dataAtualFormatada(element.Dia);
+                if(menor.getTime() > this.dataAtualFormatada(element.dia).getTime())
+                menor = this.dataAtualFormatada(element.dia);
             });
             return menor.toLocaleDateString("pt-BR");
         }catch(erro){
@@ -24,10 +24,10 @@ export class ProcessarInfoService {
 
     public GetMaiorDia(partidas : Partida[]): string{
         try{
-            let maior = this.dataAtualFormatada(partidas[0].Dia)
+            let maior = this.dataAtualFormatada(partidas[0].dia)
             partidas.forEach(element => {
-                if(maior.getTime() < this.dataAtualFormatada(element.Dia).getTime())
-                maior = this.dataAtualFormatada(element.Dia);
+                if(maior.getTime() < this.dataAtualFormatada(element.dia).getTime())
+                maior = this.dataAtualFormatada(element.dia);
             });
             return maior.toLocaleDateString("pt-BR");
         }catch(erro){
@@ -42,7 +42,7 @@ export class ProcessarInfoService {
     public GetTotalPontos(partidas : Partida[]): number{
         let pontos = 0;
         partidas.forEach(element => {
-            pontos = pontos + element.Pontos;
+            pontos = pontos + element.pontos;
         });
         return pontos;
     }
@@ -52,29 +52,29 @@ export class ProcessarInfoService {
     }
 
     public GetMenorPontuacao(partidas : Partida[]): number{
-        let menor = partidas[0].Pontos;
+        let menor = partidas[0].pontos;
         partidas.forEach(element => {
-            if(menor > element.Pontos)
-                menor = element.Pontos;
+            if(menor > element.pontos)
+                menor = element.pontos;
         });
         return menor;
     }
 
     public GetMaiorPontuacao(partidas : Partida[]): number{
-        let maior = partidas[0].Pontos;
+        let maior = partidas[0].pontos;
         partidas.forEach(element => {
-            if(maior < element.Pontos)
-                maior = element.Pontos;
+            if(maior < element.pontos)
+                maior = element.pontos;
         });
         return maior;
     }
 
     public GetQtdBateuRecorde(partidas : Partida[]): number{
-        let maior = partidas[0].Pontos;
+        let maior = partidas[0].pontos;
         let qtd = 0;
         partidas.forEach(element => {
-            if(element.Pontos > maior){
-                maior = element.Pontos;
+            if(element.pontos > maior){
+                maior = element.pontos;
                 qtd = qtd + 1;
             }
         });

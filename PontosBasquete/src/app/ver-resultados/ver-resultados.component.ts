@@ -21,11 +21,11 @@ export class VerResultadosComponent implements OnInit {
 
 
   constructor(public req: RequestsService, public proc: ProcessarInfoService) {
-      
+
   }
 
   ngOnInit(): void {
-      var teste = this.req.GetPartidas().subscribe(result => { this.PreencherDados(result); })
+      var teste = this.req.GetPartidas().subscribe(result => { this.PreencherDados(result.data); })
   }
 
   PreencherDados(partidas:Partida[]) {
@@ -39,5 +39,5 @@ export class VerResultadosComponent implements OnInit {
       this.qtdeBateuRecorde = this.proc.GetQtdBateuRecorde(partidas);
       console.log(this.Partidas)
   }
-    
+
 }
